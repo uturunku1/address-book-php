@@ -28,11 +28,12 @@
           {% if list_of_contacts is not empty %}
            <h2>List of contacts:</h2>
            <ul>
-               {% for contact in list_of_contacts %}
+               {% for key, contact in list_of_contacts %}
                  <form action= '/remove_contact' method='post'>
                    <h4><u>{{contact.getName}}</u></h4>
                    <li>{{contact.getAddress}}</li>
                    <li>{{contact.getPhone}}</li>
+                   <input type="hidden" name="key" value={{key}}>
                    <button type="submit" class="btn btn-primary btn-sm">Remove contact</button>
                  </form>
                {%endfor%}

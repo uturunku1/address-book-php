@@ -2,12 +2,10 @@
   date_default_timezone_set('America/Los_Angeles');
   require_once __DIR__."/../vendor/autoload.php";
   require_once __DIR__.'/../src/address-book.php';
-
   session_start();
    if (empty($_SESSION['list_of_contacts'])){
        $_SESSION['list_of_contacts'] = array();
    }
-
   $app= new Silex\Application();
   $app['debug']= true;
   $app->register(new Silex\Provider\TwigServiceProvider(), array(
@@ -30,5 +28,4 @@
     return $app['twig']->render('remove_contact.html.twig');
   });
   return $app;
-
  ?>

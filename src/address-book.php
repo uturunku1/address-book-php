@@ -1,11 +1,9 @@
 <?php
-
 class contact
 {
   private $name;
   private $address;
   private $phone;
-
   function __construct($name, $address,$phone)
   {
     $this->name= $name;
@@ -44,11 +42,12 @@ class contact
   }
   static function remove()
   {
-    echo $_SESSION['list_of_contacts'][$contact];
-    echo count ($_SESSION['list_of_contacts']);
-    $_SESSION = Array();
-    // unset($_SESSION['list_of_contacts']);
+    echo $_POST['key'];
+    $key = $_POST['key'];
+    // echo count ($_SESSION['list_of_contacts']);
+    // $key= array_search($_POST['key'],$_SESSION['list_of_contacts']);
+    unset($_SESSION['list_of_contacts'][$key]);
+    $_SESSION['list_of_contacts']=array_values($_SESSION['list_of_contacts']);
   }
-
 }
  ?>
