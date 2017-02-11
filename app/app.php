@@ -24,7 +24,10 @@
   $app->post('/delete_contacts', function() use($app){
     contact::delete();
     return $app['twig']->render('delete_contacts.html.twig');
-
+  });
+  $app->post('/remove_contact', function() use ($app){
+    contact::remove();
+    return $app['twig']->render('remove_contact.html.twig');
   });
   return $app;
 

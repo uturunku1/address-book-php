@@ -11,15 +11,15 @@
           <form action= '/create_contact' method='post'>
             <div class="form-group">
               <label for="name">Full name</label>
-              <input type="text" class="form-control" name='name'>
+              <input type="text" class="form-control" name='name' required>
             </div>
             <div class="form-group">
               <label for="address">Address</label>
-              <input type="text" class="form-control" name="address" >
+              <input type="text" class="form-control" name="address" required>
             </div>
             <div class="form-group">
               <label for="phone">Phone Number</label>
-              <input type="text" class="form-control" name="phone">
+              <input type="number" class="form-control" name="phone" required>
             </div>
             <button type="submit" class="btn">Add Contact</button>
           </form>
@@ -29,13 +29,16 @@
            <h2>List of contacts:</h2>
            <ul>
                {% for contact in list_of_contacts %}
-                 <h4>{{contact.getName}}</h4>
-                 <li>{{contact.getAddress}}</li>
-                 <li>{{contact.getPhone}}</li>
+                 <form action= '/remove_contact' method='post'>
+                   <h4><u>{{contact.getName}}</u></h4>
+                   <li>{{contact.getAddress}}</li>
+                   <li>{{contact.getPhone}}</li>
+                   <button type="submit" class="btn btn-primary btn-sm">Remove contact</button>
+                 </form>
                {%endfor%}
            </ul>
            <form action= '/delete_contacts' method='post'>
-           <button type="submit" class="btn">Delete Contacts</button>
+           <button type="submit" class="btn btn-danger">Delete ALL contacts</button>
            </form>
           {% endif %}
     </div>

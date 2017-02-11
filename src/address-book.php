@@ -1,11 +1,11 @@
 <?php
 
-
 class contact
 {
   private $name;
   private $address;
   private $phone;
+
   function __construct($name, $address,$phone)
   {
     $this->name= $name;
@@ -14,6 +14,12 @@ class contact
   }
   function setName($new_name){
     $this->name= (string) $new_name;
+  }
+  function setAddress($new_address){
+    $this->name= (string) $new_address;
+  }
+  function setPhone($new_phone){
+    $this->name= (string) $new_phone;
   }
   function getName(){
     return $this->name;
@@ -36,10 +42,13 @@ class contact
   {
     $_SESSION['list_of_contacts'] = array();
   }
-  // function setAdress()
-  // {
-  //   # code...
-  // }
+  static function remove()
+  {
+    echo $_SESSION['list_of_contacts'][$contact];
+    echo count ($_SESSION['list_of_contacts']);
+    $_SESSION = Array();
+    // unset($_SESSION['list_of_contacts']);
+  }
 
 }
  ?>
